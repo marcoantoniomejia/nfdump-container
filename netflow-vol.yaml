@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: netflow
+spec:
+  containers:
+  - name: netflow
+    image: marcomejia/centos-nfdump-v1:latest
+    volumeMounts:
+    - name: logs
+      mountPath: /home/logs
+  volumes:
+  - name: netflow-storage
+    emptyDir: {}
