@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netflow
+  labels:
+    app: nfcapd
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nfcapd
+  template:
+    metadata:
+      labels:
+        app: nfcapd
+    spec:
+      containers:
+      - name: netflow
+        image:  marcomejia/centos-nfdump-v1
+        ports:
+        - containerPort: 9001
